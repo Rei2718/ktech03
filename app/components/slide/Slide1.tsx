@@ -63,7 +63,7 @@ export default function Slide1() {
         <img
           src="Screen01.png"
           alt="Procreate"
-          className="w-full h-full object-cover object-center brightness-70 blur-[1px]"
+          className="w-full h-full object-cover object-center brightness-80"
         />
       </div>
     </div>
