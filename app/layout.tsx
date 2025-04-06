@@ -1,8 +1,9 @@
-// app/layout.tsx など
+// app/layout.tsx
 import "./globals.css";
 import type { Metadata } from "next";
 import { Inter, Roboto_Mono } from "next/font/google";
 import PrelineScriptWrapper from "./components/PrelineScriptWrapper";
+import SplashScreenWrapper from "./components/SplashScreenWrapper";
 
 // Google Fonts (例: Inter と Roboto Mono)
 const inter = Inter({
@@ -28,7 +29,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.variable} ${robotoMono.variable} antialiased`}>
-        {children}
+        <SplashScreenWrapper>
+          {children}
+        </SplashScreenWrapper>
       </body>
       <PrelineScriptWrapper />
     </html>
