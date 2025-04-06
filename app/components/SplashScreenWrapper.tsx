@@ -1,35 +1,36 @@
 "use client";
 import { useEffect, useState } from "react";
 
+const SplashScreen = () => (
+  <div className="fixed inset-0 flex items-center justify-center z-50 bg-white">
+    <p>Loading...</p>
+  </div>
+);
+
 export default function SplashScreenWrapper({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const [isLoaded, setIsLoaded] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(() => {
+    // クライアントサイドの場合にのみ document にアクセスする
+    if (typeof document !== "undefined") {
+      return document.readyState === "complete";
+    }
+    return false;
+  });
 
   useEffect(() => {
-    const handleLoad = () => {
-      setIsLoaded(true);
-    };
+    if (isLoaded) return;
 
-    // すでに読み込み完了している場合は即座にハンドルを実行
-    if (document.readyState === "complete") {
-      handleLoad();
-    } else {
-      window.addEventListener("load", handleLoad);
-      return () => window.removeEventListener("load", handleLoad);
-    }
-  }, []);
+    const handleLoad = () => setIsLoaded(true);
+    window.addEventListener("load", handleLoad);
+    return () => window.removeEventListener("load", handleLoad);
+  }, [isLoaded]);
 
   return (
     <>
-      {!isLoaded && (
-        <div className="fixed inset-0 flex items-center justify-center z-50 bg-white">
-          {/* ここにスプラッシュスクリーンのデザインやロゴなどを記述 */}
-          <p>Loading...</p>
-        </div>
-      )}
+      {!isLoaded && <SplashScreen />}
       <div style={{ visibility: isLoaded ? "visible" : "hidden" }}>
         {children}
       </div>
