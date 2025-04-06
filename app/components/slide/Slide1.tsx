@@ -5,12 +5,6 @@ export default function Slide1() {
       {/* 背景に太陽光のようなブラー効果を追加 */}
       <div
         className="absolute top-0 left-0 w-full h-full pointer-events-none"
-        style={{
-          background:
-            "radial-gradient(circle at top right, rgba(246,203,161,0.4), transparent 60%)",
-          filter: "blur(20px)",
-          mixBlendMode: "screen",
-        }}
       />
       {/* コンテンツエリア */}
       <div
@@ -39,7 +33,7 @@ export default function Slide1() {
             </p>
           </div>
           <button
-            className="mt-4 sm:mt-6 border border-gray-300 text-gray-300 hover:text-white transition
+            className="mt-4 sm:mt-6 border border-white hover:text-white transition
                       text-xs sm:text-sm md:text-sm lg:text-base
                       py-1 sm:py-2 md:py-2 lg:py-2
                       px-2 sm:px-4 md:px-5 lg:px-6
@@ -51,7 +45,7 @@ export default function Slide1() {
 
         {/* 右側（説明） */}
         <div className="flex-1 min-w-0 max-w-md text-center md:text-left pt-8 md:pt-0">
-          <p className="text-base sm:text-lg md:text-xl lg:text-xl leading-relaxed text-gray-200">
+          <p className="text-base sm:text-lg md:text-xl lg:text-xl leading-relaxed">
             ここに約100字の説明文が入ります。画面サイズに合わせ自動改行され、モバイルではできるだけ表示され、
             大画面では全文が右側にフル表示されるよう調整されています。
           </p>
