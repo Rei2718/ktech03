@@ -1,6 +1,6 @@
 "use client";
-import React, { useCallback, useEffect, useRef } from "react";
-import { EmblaOptionsType, EmblaCarouselType, EmblaEventType } from "embla-carousel";
+import React, { useCallback, useEffect } from "react";
+import { EmblaOptionsType, EmblaCarouselType } from "embla-carousel";
 import { DotButton, useDotButton } from "./CarouselDotButton";
 import Autoplay from "embla-carousel-autoplay";
 import useEmblaCarousel from "embla-carousel-react";
@@ -18,16 +18,11 @@ type PropType = {
   options?: EmblaOptionsType;
 };
 
-const TWEEN_FACTOR_BASE = 0.2;
-const numberWithinRange = (n: number, min: number, max: number): number =>
-  Math.min(Math.max(n, min), max);
-
 const Carousel_3: React.FC<PropType> = ({ options = {} }) => {
   const emblaOptions: EmblaOptionsType = { align: "center", ...options };
   const [emblaRef, emblaApi] = useEmblaCarousel(emblaOptions, [Autoplay()]);
-  const tweenFactor = useRef(0);
-  const tweenNodes = useRef<HTMLElement[]>([]);
 
+  // スライド切替時に Autoplay のリセットまたは停止を行うコールバック
   const onNavButtonClick = useCallback((emblaApi: EmblaCarouselType) => {
     const autoplay = emblaApi?.plugins()?.autoplay;
     if (!autoplay) return;
@@ -36,74 +31,23 @@ const Carousel_3: React.FC<PropType> = ({ options = {} }) => {
     resetOrStop();
   }, []);
 
-  const { selectedIndex, scrollSnaps, onDotButtonClick } = useDotButton(emblaApi, onNavButtonClick);
-
-  const setTweenNodes = useCallback((emblaApi: EmblaCarouselType): void => {
-    tweenNodes.current = emblaApi.slideNodes().map((slideNode) => {
-      return slideNode.querySelector(".carousel3__slide") as HTMLElement;
-    });
-  }, []);
-
-  const setTweenFactor = useCallback((emblaApi: EmblaCarouselType) => {
-    tweenFactor.current = TWEEN_FACTOR_BASE * emblaApi.scrollSnapList().length;
-  }, []);
-
-  const tweenScale = useCallback((emblaApi: EmblaCarouselType, eventName?: EmblaEventType) => {
-    const engine = emblaApi.internalEngine();
-    const scrollProgress = emblaApi.scrollProgress();
-    const slidesInView = emblaApi.slidesInView();
-    const isScrollEvent = eventName === "scroll";
-
-    emblaApi.scrollSnapList().forEach((scrollSnap, snapIndex) => {
-      let diffToTarget = scrollSnap - scrollProgress;
-      const slidesInSnap = engine.slideRegistry[snapIndex];
-
-      slidesInSnap.forEach((slideIndex) => {
-        if (isScrollEvent && !slidesInView.includes(slideIndex)) return;
-
-        if (engine.options.loop) {
-          engine.slideLooper.loopPoints.forEach((loopItem) => {
-            const target = loopItem.target();
-            if (slideIndex === loopItem.index && target !== 0) {
-              const sign = Math.sign(target);
-              if (sign === -1) diffToTarget = scrollSnap - (1 + scrollProgress);
-              if (sign === 1) diffToTarget = scrollSnap + (1 - scrollProgress);
-            }
-          });
-        }
-
-        const tweenValue = 1 - Math.abs(diffToTarget * tweenFactor.current);
-        const scale = numberWithinRange(tweenValue, 0, 1).toString();
-        const tweenNode = tweenNodes.current[slideIndex];
-        if (tweenNode) {
-          tweenNode.style.transform = `scale(${scale})`;
-        }
-      });
-    });
-  }, []);
+  const { selectedIndex, scrollSnaps, onDotButtonClick } = useDotButton(
+    emblaApi,
+    onNavButtonClick
+  );
 
   useEffect(() => {
     if (!emblaApi) return;
 
-    setTweenNodes(emblaApi);
-    setTweenFactor(emblaApi);
-    tweenScale(emblaApi);
+    // tweenScale によるスケーリングアニメーションは削除
 
-    emblaApi
-      .on("reInit", setTweenNodes)
-      .on("reInit", setTweenFactor)
-      .on("reInit", tweenScale)
-      .on("scroll", tweenScale)
-      .on("slideFocus", tweenScale);
-
-    // スライドアニメーション
+    // スライドの初回表示時のアニメーション（スケール指定を削除）
     document.querySelectorAll(".carousel3__slide").forEach((el, i) => {
       gsap.fromTo(
         el,
-        { autoAlpha: 0, scale: 0.9, y: 40 },
+        { autoAlpha: 0, y: 40 },
         {
           autoAlpha: 1,
-          scale: 1,
           y: 0,
           duration: 1.1,
           ease: "power2.out",
@@ -117,7 +61,7 @@ const Carousel_3: React.FC<PropType> = ({ options = {} }) => {
       );
     });
 
-    // タイトルアニメーション
+    // タイトルのアニメーション
     const title = document.querySelector(".carousel3__title");
     if (title) {
       gsap.fromTo(
@@ -137,7 +81,7 @@ const Carousel_3: React.FC<PropType> = ({ options = {} }) => {
       );
     }
 
-    // ナビゲーションアニメーション
+    // ナビゲーションのアニメーション
     const nav = document.querySelector(".carousel3__nav");
     if (nav) {
       gsap.fromTo(
@@ -156,13 +100,12 @@ const Carousel_3: React.FC<PropType> = ({ options = {} }) => {
         }
       );
     }
-  }, [emblaApi, setTweenNodes, setTweenFactor, tweenScale]);
+  }, [emblaApi]);
 
   return (
     <section className="w-full pb-15">
-      {/* タイトルにクラス名追加 */}
-      <h1 className="carousel3__title text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-9 flex justify-center items-center">
-        ギャラリー
+      <h1 className="carousel3__title text-3xl sm:text-4xl md:text-5xl lg:text-6xl pb-10 font-bold flex justify-center items-center">
+        Gallery
       </h1>
 
       <div className="overflow-hidden" ref={emblaRef}>

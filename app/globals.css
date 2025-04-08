@@ -2,15 +2,24 @@
 @import "preline/variants.css";
 @source "../node_modules/preline/dist/*.js";
 
-/* globals.css - アニメーションに関係するプロパティのみ記述 */
-.embla__viewport {
+/* ------------------------------
+   無限スクロールバナー用の基本スタイル
+------------------------------ */
+.marquee-wrapper {
   overflow: hidden;
+  position: relative;
 }
 
-.embla__container {
-  touch-action: pan-y pinch-zoom;
+/* marquee コンテナは横並びに子要素を配置 */
+.marquee {
+  display: flex;
+  flex-wrap: nowrap;
+  /* 幅の指定は不要。GSAP で x の値を制御します。 */
 }
 
-.embla__slide {
-  transform: translate3d(0, 0, 0);
+/* marquee-inner は画像リストのコンテナ */
+.marquee-inner {
+  display: flex;
+  flex-shrink: 0;
+  /* 連続した横並びの画像に対して適切な配置を行う */
 }

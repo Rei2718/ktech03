@@ -29,11 +29,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.variable} ${robotoMono.variable} antialiased`}>
+        {/* コンテンツの上に SplashScreenWrapper でラップ */}
         <SplashScreenWrapper>
           {children}
         </SplashScreenWrapper>
+        {/* スクリプトも body 内に配置 */}
+        <PrelineScriptWrapper />
       </body>
-      <PrelineScriptWrapper />
     </html>
   );
 }

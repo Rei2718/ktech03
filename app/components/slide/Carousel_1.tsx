@@ -118,7 +118,7 @@ const Carousel_1: React.FC<PropType> = ({ options = {} }) => {
             // px-8 から px-4 に変更
             <div key={index} className="flex-none px-4">
               {/* 内側のラッパーに embla__slide__scale クラスを追加 */}
-              <div className="h-[75svh] w-[85svw] rounded-4xl border-2 border-white/20 overflow-hidden embla__slide__scale">
+              <div className="h-[80svh] w-[90svw] rounded-4xl border-2 border-white/20 overflow-hidden embla__slide__scale">
                 <SlideComponent />
               </div>
             </div>

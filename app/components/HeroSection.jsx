@@ -46,15 +46,19 @@ export default function HeroSection() {
     <section className="relative w-full h-svh overflow-visible text-white">
       {/* テキスト群：セクション下部中央 */}
       <div className="absolute left-0 right-0 bottom-4  w-11/12 mx-auto flex flex-col items-center space-y-6 md:space-y-8">
-        <div ref={textGroupRef} className="text-center space-y-4">
-          <p className="text-sm md:text-3xl font-bold">
-            最高にプロフェッショナルでクリエイティブなチーム
+        <div ref={textGroupRef} className="text-center">
+          <p className="text-xl sm:text-xl md:text-2xl lg:text-2xl xl:text-2xl">
+            最高にプロフェッショナルで <br/>
+            クリエイティブなチーム
           </p>
-          <h1 className="py-3 text-4xl md:text-7xl font-bold">
-            TECHNOLOGY × CREATIVE
+          <h1 className="text-5xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold py-3">
+            KEISHO <br/>
+            TECHNOLOGIES
           </h1>
-          <p className="text-sm md:text-xl max-w-9/12 mx-auto">
-            クリエイティブなプロフェッショナルや意欲的なアーティスト向けの、強力で直感的なコミュニティで創造性を高めましょう。
+          <p className="text-lg sm:text-lg md:text-xl lg:text-xl xl:text-xl w-full mx-auto pt-10">
+            クリエイティブなプロフェッショナルや
+            意欲的なアーティスト向けの
+            強力で直感的なコミュニティ。
           </p>
         </div>
       </div>

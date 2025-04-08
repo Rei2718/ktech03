@@ -18,18 +18,25 @@ export default function Slide1() {
       >
         {/* 左側（タイトル・情報） */}
         <div className="flex-1 min-w-0 flex flex-col justify-center items-center text-center md:items-start md:text-left">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold">
-            Procreate
+          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold">
+            3DCG GRAPHICS  April
           </h2>
           <p className="pt-4 sm:pt-5 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold">
-            究極なアートスタジオ
+            コンピュータグラフィックス基礎 <br/>
+            BLENDER
           </p>
           <div className="pt-10 flex flex-wrap justify-center md:justify-start gap-x-4 gap-y-2">
-            <p className="text-gray-300 text-sm sm:text-base md:text-lg lg:text-xl">
+            <p className="text-sm sm:text-base md:text-lg lg:text-xl">
               レベル : ★☆☆☆☆
             </p>
-            <p className="text-gray-300 text-sm sm:text-base md:text-lg lg:text-xl">
+            <p className="text-sm sm:text-base md:text-lg lg:text-xl">
               進行度 : 進行中
+            </p>
+          </div>
+          <div className="flex max-w-3xl text-left pt-8">
+            <p className="text-sm sm:text-base md:text-lg lg:text-xl">
+              ここに約100字の説明文が入ります。画面サイズに合わせ自動改行され、モバイルではできるだけ表示され、
+              大画面では全文が右側にフル表示されるよう調整されています。
             </p>
           </div>
           <button
@@ -41,14 +48,6 @@ export default function Slide1() {
           >
             詳細を見る
           </button>
-        </div>
-
-        {/* 右側（説明） */}
-        <div className="flex-1 min-w-0 max-w-md text-center md:text-left pt-8 md:pt-0">
-          <p className="text-base sm:text-lg md:text-xl lg:text-xl leading-relaxed">
-            ここに約100字の説明文が入ります。画面サイズに合わせ自動改行され、モバイルではできるだけ表示され、
-            大画面では全文が右側にフル表示されるよう調整されています。
-          </p>
         </div>
       </div>
 
