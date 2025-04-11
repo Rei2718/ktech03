@@ -103,7 +103,7 @@ const Carousel_3: React.FC<PropType> = ({ options = {} }) => {
   }, [emblaApi]);
 
   return (
-    <section className="w-full pb-15">
+    <section className="w-full py-15">
       <h1 className="carousel3__title text-3xl sm:text-4xl md:text-5xl lg:text-6xl pb-10 font-bold flex justify-center items-center">
         Gallery
       </h1>

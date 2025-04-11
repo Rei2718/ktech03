@@ -1,5 +1,5 @@
 "use client";
-import React, { useCallback, useEffect } from "react";
+import React, { useCallback, useEffect, useMemo } from "react";
 import { EmblaOptionsType, EmblaCarouselType } from "embla-carousel";
 import { DotButton, useDotButton } from "./CarouselDotButton";
 import Autoplay from "embla-carousel-autoplay";
@@ -11,8 +11,11 @@ gsap.registerPlugin(ScrollTrigger);
 import Mac1 from "./Mac1";
 import Mac2 from "./Mac2";
 import Mac3 from "./Mac3";
+import Mac4 from "./Mac4";
+import Mac5 from "./Mac5";
+import Mac6 from "./Mac6";
 
-const slideComponents = [Mac1, Mac2, Mac3, Mac1, Mac2, Mac3];
+const slideComponents = [Mac1, Mac2, Mac3, Mac4, Mac5, Mac6 ];
 
 type PropType = {
   options?: EmblaOptionsType;
@@ -20,14 +23,17 @@ type PropType = {
 
 const Carousel_2: React.FC<PropType> = ({ options = {} }) => {
   const emblaOptions: EmblaOptionsType = { align: "center", ...options };
-  const [emblaRef, emblaApi] = useEmblaCarousel(emblaOptions, [Autoplay()]);
+  
+  // Autoplay プラグインのインスタンスをメモ化
+  const autoplay = useMemo(() => Autoplay(), []);
+  const [emblaRef, emblaApi] = useEmblaCarousel(emblaOptions, [autoplay]);
 
   // スライド切替時に Autoplay のリセットまたは停止を行うコールバック
   const onNavButtonClick = useCallback((emblaApi: EmblaCarouselType) => {
-    const autoplay = emblaApi?.plugins()?.autoplay;
-    if (!autoplay) return;
+    const autoplayPlugin = emblaApi?.plugins()?.autoplay;
+    if (!autoplayPlugin) return;
     const resetOrStop =
-      autoplay.options.stopOnInteraction === false ? autoplay.reset : autoplay.stop;
+      autoplayPlugin.options.stopOnInteraction === false ? autoplayPlugin.reset : autoplayPlugin.stop;
     resetOrStop();
   }, []);
 
@@ -39,9 +45,7 @@ const Carousel_2: React.FC<PropType> = ({ options = {} }) => {
   useEffect(() => {
     if (!emblaApi) return;
 
-    // tweenScale によるスケーリングアニメーションは削除
-
-    // スライドの初回表示時のアニメーション（スケール指定を削除）
+    // スライドの初回表示時のアニメーション
     document.querySelectorAll(".carousel3__slide").forEach((el, i) => {
       gsap.fromTo(
         el,
@@ -51,7 +55,7 @@ const Carousel_2: React.FC<PropType> = ({ options = {} }) => {
           y: 0,
           duration: 1.1,
           ease: "power2.out",
-          delay: i * 0.05, // 軽い連番効果
+          delay: i * 0.05,
           scrollTrigger: {
             trigger: el,
             start: "top 90%",
@@ -103,9 +107,9 @@ const Carousel_2: React.FC<PropType> = ({ options = {} }) => {
   }, [emblaApi]);
 
   return (
-    <section className="w-full pb-15">
+    <section className="w-full h-auto py-15">
       <h1 className="carousel3__title text-3xl sm:text-4xl md:text-5xl lg:text-6xl pb-10 font-bold flex justify-center items-center">
-        Achievements
+        Spring Project
       </h1>
 
       <div className="overflow-hidden" ref={emblaRef}>

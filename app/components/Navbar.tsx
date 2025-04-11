@@ -56,10 +56,10 @@ export default function AnimatedFullscreenMenu() {
               <img src="/logo.png" alt="Logo" className="h-6" />
             </a>
           </Link>
-          {/* メニュートグルボタン：サイズ小さめ */}
+          {/* メニュートグルボタン：サイズ小さめに変更 */}
           <button
             onClick={toggleMenu}
-            className="relative w-8 h-8 focus:outline-none"
+            className="relative w-6 h-6 focus:outline-none"
             aria-label="Toggle menu"
           >
             {/* 上段 */}
@@ -67,9 +67,9 @@ export default function AnimatedFullscreenMenu() {
               style={{
                 transform: isMenuOpen
                   ? "translate(-50%, -50%) rotate(45deg)"
-                  : "translate(-50%, calc(-50% - 0.5rem))",
+                  : "translate(-50%, calc(-50% - 0.25rem))",
               }}
-              className="block absolute left-1/2 top-1/2 h-0.5 w-6 bg-white transition-transform duration-500 ease-in-out"
+              className="block absolute left-1/2 top-1/2 h-[2px] w-5 bg-white transition-transform duration-500 ease-in-out"
             ></span>
             {/* 中段 */}
             <span
@@ -77,16 +77,16 @@ export default function AnimatedFullscreenMenu() {
                 opacity: isMenuOpen ? 0 : 1,
                 transform: "translate(-50%, -50%)",
               }}
-              className="block absolute left-1/2 top-1/2 h-0.5 w-6 bg-white transition-opacity duration-500 ease-in-out"
+              className="block absolute left-1/2 top-1/2 h-[2px] w-5 bg-white transition-opacity duration-500 ease-in-out"
             ></span>
             {/* 下段 */}
             <span
               style={{
                 transform: isMenuOpen
                   ? "translate(-50%, -50%) rotate(-45deg)"
-                  : "translate(-50%, calc(-50% + 0.5rem))",
+                  : "translate(-50%, calc(-50% + 0.25rem))",
               }}
-              className="block absolute left-1/2 top-1/2 h-0.5 w-6 bg-white transition-transform duration-500 ease-in-out"
+              className="block absolute left-1/2 top-1/2 h-[2px] w-5 bg-white transition-transform duration-500 ease-in-out"
             ></span>
           </button>
         </div>

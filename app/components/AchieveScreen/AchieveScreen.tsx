@@ -122,7 +122,7 @@ const Marquee: React.FC<MarqueeProps> = ({
           src={`/${img}.svg`}
           alt={`Award ${index + 1}`}
           onLoad={handleImageLoad}
-          className="mx-4 inline-block h-44 filter invert"
+          className="mx-4 inline-block h-[20svh] filter invert"
         />
       ))}
     </div>
@@ -137,7 +137,7 @@ const Marquee: React.FC<MarqueeProps> = ({
           src={`/${img}.svg`}
           alt={`Award ${index + 1}`}
           onLoad={handleImageLoad}
-          className="mx-4 inline-block h-44 filter invert"
+          className="mx-4 inline-block h-[20svh] filter invert"
         />
       ))}
     </div>
@@ -229,7 +229,7 @@ export default function AchieveScreen() {
   ];
 
   return (
-    <section className="w-full flex flex-col items-center py-15">
+    <section className="w-full h-auto flex flex-col items-center py-15">
       <div className="w-10/12 max-w-4xl text-center">
         <h1
           ref={titleRef}

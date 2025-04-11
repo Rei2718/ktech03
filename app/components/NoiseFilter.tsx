@@ -1,58 +1,48 @@
-import React from "react";
+import React, { useMemo } from "react";
 
 const NoiseFilter = () => {
-  // 毎回異なるノイズパターンとなるようランダムな seed を生成
-  const randomSeed = Math.floor(Math.random() * 1000);
+  // コンポーネント初回マウント時のみランダムな seed を生成する
+  const randomSeed = useMemo(() => Math.floor(Math.random() * 1000), []);
 
   return (
     <>
-      {/* 非表示SVG内にフィルター定義 */}
-      <svg style={{ display: "none" }}>
+      {/* SVGフィルターの定義（幅・高さ0、非表示状態だがDOM内に残す） */}
+      <svg width="0" height="0" style={{ position: "absolute", visibility: "hidden" }}>
         <filter id="noiseFilter">
-          {/* ノイズパターンを生成（baseFrequency を2.75に変更） */}
-          <feTurbulence 
-            type="fractalNoise" 
-            baseFrequency="2.11" 
+          {/* ノイズパターンを生成：コメントに合わせて baseFrequency を2.75 に変更 */}
+          <feTurbulence
+            type="fractalNoise"
+            baseFrequency="1.95"
             numOctaves="1"
             seed={randomSeed}
-            result="turbulence" 
+            result="turbulence"
           />
-          {/* Turbulence の赤チャネルをαとして抽出 */}
-          <feColorMatrix 
-            in="turbulence" 
+          {/* turbulence の赤チャネルをαとして抽出（5列×4行、計20数値が必要） */}
+          <feColorMatrix
+            in="turbulence"
             type="matrix"
             values="
-              0 0 0 0 
-              0 0 0 0 
-              0 0 0 0 
-              1 0 0 0" 
-            result="noiseAlpha" 
+              0 0 0 0 0 
+              0 0 0 0 0 
+              0 0 0 0 0 
+              1 0 0 0 0"
+            result="noiseAlpha"
           />
-          {/* α値を線形変換し、透過度が0.2～0.5となるよう調整 */}
+          {/* α値を線形変換し、透過度が0.2～0.5となるように調整 */}
           <feComponentTransfer in="noiseAlpha" result="mask">
-            <feFuncA type="linear" slope="0.2" intercept="0.2" />
+            <feFuncA type="linear" slope="0.12" intercept="0.01" />
           </feComponentTransfer>
-          {/* 灰色を設定 */}
-          <feFlood floodColor="#A2A2A2" result="flood" />
-          {/* マスクに沿って灰色を適用 */}
-          <feComposite 
-            in="flood" 
-            in2="mask" 
-            operator="in" 
-            result="noise" 
-          />
+          <feFlood floodColor="#ffffff" result="flood" />
+          {/* マスクと合成 */}
+          <feComposite in="flood" in2="mask" operator="in" result="noise" />
         </filter>
       </svg>
 
-      {/* 全画面オーバーレイでフィルターを適用 */}
-      <div
-        className="fixed top-0 left-0 w-full h-full z-50 pointer-events-none"
-        style={{ mixBlendMode: "normal" }}
-      >
-        <div
-          className="w-full h-full"
-          style={{ filter: "url(#noiseFilter)" }}
-        ></div>
+      {/* 全画面オーバーレイ：SVG内で <rect> にフィルターを適用することでノイズを描画 */}
+      <div className="fixed top-0 left-0 w-full h-full z-50 pointer-events-none">
+        <svg className="w-full h-full">
+          <rect width="100%" height="100%" filter="url(#noiseFilter)" />
+        </svg>
       </div>
     </>
   );

@@ -23,3 +23,31 @@
   flex-shrink: 0;
   /* 連続した横並びの画像に対して適切な配置を行う */
 }
+
+.image-container {
+  position: relative;
+}
+
+/* 上部フェード：上部20%部分で黒から透明にグラデーション */
+.image-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 30svh;
+  pointer-events: none;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+}
+
+/* 下部フェード：下部20%部分で黒から透明にグラデーション（反転） */
+.image-container::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 30svh; /* 必要に応じて調整可能 */
+  pointer-events: none;
+  background: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+}

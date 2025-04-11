@@ -3,7 +3,6 @@ import VideoBackground from "./components/VideoBackground";
 import HeroSection from "./components/HeroSection";
 import { VideoProvider } from "./components/VideoContext";
 import HandSection from "./components/HandSection";
-import ArtistSection from "./components/ArtistSection";
 import { EmblaOptionsType } from "embla-carousel";
 import ImgScreen from "./components/ImgScreen/ImgScreen";
 import Carousel_1 from "./components/slide/Carousel_1";
@@ -43,7 +42,6 @@ export default function HomePage() {
             <Carousel_3 options={OPTIONS} />
             <ImgScreen02 />
             <HandSection />
-            <ArtistSection />
           </div>
         </div>
       </VideoProvider>
