@@ -25,8 +25,7 @@ const menuLinks: LinkItem[] = [
 ];
 
 const socialLinks: LinkItem[] = [
-  { href: "https://instagram.com", src: "/Instagram.png", alt: "Instagram" },
-  { href: "https://keisho.tech", src: "/KeishoTech.png", alt: "Keisho Tech" },
+  { href: "https://ritsumeisai-special-site.vercel.app", src: "/KeishoTech.png", alt: "Keisho Tech" },
   { href: "https://www2.spc.ritsumei.ac.jp/", src: "/School.png", alt: "School" },
 ];
 
