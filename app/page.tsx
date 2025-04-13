@@ -46,9 +46,9 @@ export default function HomePage() {
             <MiddleMessage />
             <ImgScreen02 />
             <Carousel_2 options={OPTIONS} />
-            {/"
+            {/*
             <Carousel_3 options={OPTIONS} />
-            "/}
+            */}
             <RecruitmentSection />
           </div>
         </div>
