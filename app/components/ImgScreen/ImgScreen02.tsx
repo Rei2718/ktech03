@@ -94,7 +94,7 @@ export default function ImgScreen() {
         <div className="overflow-hidden rounded-3xl mb-32 w-10/12 max-w-4xl">
           <img
             ref={imageRef}
-            src="Screen01.png"
+            src="Screen04.png"
             alt="Cropped Example"
             className="w-full h-auto object-cover"
           />
@@ -140,7 +140,7 @@ export default function ImgScreen() {
         <div className="image-container relative z-0">
           <img
             ref={bgRef}
-            src="BG-1.jpg"
+            src="Screen04.png"
             alt=""
             className="w-full h-[120vh] object-cover z-0"
           />
