@@ -111,6 +111,9 @@ const Carousel_2: React.FC<PropType> = ({ options = {} }) => {
       <h1 className="carousel3__title text-3xl sm:text-4xl md:text-5xl lg:text-6xl pb-8 sm:pb-12 md:pb-16 lg:pb-20 font-bold flex justify-center items-center">
         Spring Project
       </h1>
+      <p className="carousel3__title text-base sm:text-lg md:text-xl lg:text-xl xl:text-2x text-center mx-auto w-10/12 text-[#A2A2A2] max-w-6xl">
+        順次内容更新
+      </p>
 
       <div className="overflow-hidden" ref={emblaRef}>
         <div className="flex touch-action-[pan-y_pinch-zoom]">
