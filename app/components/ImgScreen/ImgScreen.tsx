@@ -94,14 +94,15 @@ export default function ImgScreen() {
           ref={titleRef}
           className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-6xl text-center pb-4 sm:pb-6 md:pb-8 lg:pb-10 max-w-4xl font-bold"
         >
-          生き生きとしたシーンを
+          技術と想像力が出会う
         </h1>
         <p
           ref={textRef}
           className="text-base sm:text-lg md:text-xl lg:text-xl xl:text-2xl text-center w-10/12 max-w-3xl text-[#A2A2A2] mt-4"
         >
-          キャラクターに命を吹き込む大規模なセットを1つのプロジェクトで作成できます。
-          ステージで描画するか、要素を完璧な瞬間まで舞台裏に留める。
+          3DCGからAI、Webまで。k-Techでは技術を使いこなすスキルと、自由な発想力が融合します。
+          国内外のコンテストで認められた私たちの作品は、デジタルの可能性を最大限に引き出す証。
+          あなたのアイデアが、ここから世界へ広がります。
         </p>
         {/* New image element with rounded-4xl cropping */}
         <div className="overflow-hidden rounded-3xl mt-32 w-10/12 max-w-4xl">

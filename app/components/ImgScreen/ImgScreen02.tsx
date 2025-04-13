@@ -102,14 +102,15 @@ export default function ImgScreen02() {
           ref={titleRef}
           className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-6xl text-center pb-4 sm:pb-6 md:pb-8 lg:pb-10 max-w-4xl font-bold"
         >
-          生き生きとしたシーンを
+          一人の創造性、全員の力に。
         </h1>
         <p
           ref={textRef}
           className="text-base sm:text-lg md:text-xl lg:text-xl xl:text-2xl text-center w-10/12 max-w-3xl text-[#A2A2A2] mt-4"
         >
-          キャラクターに命を吹き込む大規模なセットを1つのプロジェクトで作成できます。
-          ステージで描画するか、要素を完璧な瞬間まで舞台裏に留める。
+          K-Techは個性が輝く場所。
+          異なる専門性を持つメンバーが互いを高め合うことで、一人では生み出せない価値が生まれます。
+          あなたの得意を活かし、仲間と共に成長する旅に出ましょう。
         </p>
       </div>
 

@@ -56,8 +56,9 @@ export default function HeroSection() {
             TECHNOLOGIES
           </h1>
           <p className="text-lg sm:text-lg md:text-xl lg:text-xl xl:text-xl w-full mx-auto pt-10">
-            クリエイティブなプロフェッショナルや
-            意欲的なアーティスト向けの
+            3DCG、AI、Web開発、メディアアートなど、
+            最先端のテクノロジーとアートが交わる場所。
+            意欲的なメンバーが集う、
             強力で直感的なコミュニティ。
           </p>
         </div>

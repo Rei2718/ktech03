@@ -241,10 +241,10 @@ export default function AchieveScreen() {
           ref={textRef}
           className="text-base sm:text-lg md:text-xl lg:text-xl xl:text-2xl max-w-3xl mx-auto text-[#A2A2A2]"
         >
-          K-Techは、2013年にデザインとイノベーションで初の Apple Design
-          Award を受賞しました。Procreate は、2013年にデザインとイノベーションで初の
-          Apple Design Award を受賞しました。国内問わず海外でも爪痕を残してきた
-          メンバーが在籍し、更なる高みを目指して日々精進しています。
+          k-Techは単なるIT同好会の枠を超え、国内外のコンテストで次々と実績を刻んでいます。
+          3DCGの精緻な作品、機械学習を活用したプロジェクトやコンテスト、洗練されたWebデザイン<br/>
+          それぞれの分野で高い評価を獲得し、私たちの足跡は確かに残されています。
+          ここでの努力と挑戦が変えていく。あなたも共に、新たな爪痕を残しませんか。
         </p>
       </div>
 
