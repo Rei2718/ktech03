@@ -1,98 +1,146 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
+import gsap from "gsap";
 
+// リンクの型定義
+interface LinkItem {
+  href: string;
+  label?: string;
+  src?: string;
+  alt?: string;
+}
+
+// メニューおよびソーシャルリンクの静的データをコンポーネント外で定義
+const menuLinks: LinkItem[] = [
+  { href: "#", label: "Top" },
+  { href: "#about", label: "About" },
+  { href: "#achieve", label: "Achieve" },
+  { href: "#our_activity", label: "Our activity" },
+  { href: "#our_vision", label: "Our vision" },
+  { href: "#spring_Project", label: "Spring Project" },
+  { href: "#gallery", label: "Gallery" },
+  { href: "#join", label: "Join K-Tech" },
+];
+
+const socialLinks: LinkItem[] = [
+  { href: "https://instagram.com", src: "/Instagram.png", alt: "Instagram" },
+  { href: "https://keisho.tech", src: "/KeishoTech.png", alt: "Keisho Tech" },
+  { href: "https://www2.spc.ritsumei.ac.jp/", src: "/School.png", alt: "School" },
+];
+
+// ハンバーガーアイコンコンポーネント
+const HamburgerIcon = ({
+  isOpen,
+  onClick,
+}: {
+  isOpen: boolean;
+  onClick: () => void;
+}) => (
+  <button
+    onClick={onClick}
+    className="relative w-6 h-6 focus:outline-none"
+    aria-label="Toggle menu"
+  >
+    <span
+      style={{
+        transform: isOpen
+          ? "translate(-50%, -50%) rotate(45deg)"
+          : "translate(-50%, calc(-50% - 0.25rem))",
+      }}
+      className="block absolute left-1/2 top-1/2 h-[2px] w-5 bg-white transition-transform duration-500 ease-in-out"
+    />
+    <span
+      style={{
+        opacity: isOpen ? 0 : 1,
+        transform: "translate(-50%, -50%)",
+      }}
+      className="block absolute left-1/2 top-1/2 h-[2px] w-5 bg-white transition-opacity duration-500 ease-in-out"
+    />
+    <span
+      style={{
+        transform: isOpen
+          ? "translate(-50%, -50%) rotate(-45deg)"
+          : "translate(-50%, calc(-50% + 0.25rem))",
+      }}
+      className="block absolute left-1/2 top-1/2 h-[2px] w-5 bg-white transition-transform duration-500 ease-in-out"
+    />
+  </button>
+);
+
+// メインコンポーネント：AnimatedFullscreenMenu
 export default function AnimatedFullscreenMenu() {
-  // メニューオープン状態とスクロール検知用の状態
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
-  // メニューオープン時は背景のスクロールを禁止
+  // メニューが開いている時は body のスクロールを抑制
   useEffect(() => {
     document.body.classList.toggle("overflow-hidden", isMenuOpen);
   }, [isMenuOpen]);
 
-  // スクロール位置に応じてナビゲーションバーの背景変更
+  // スクロール位置に応じて背景スタイルの切り替え用
   useEffect(() => {
-    const handleScroll = () => {
-      // 画面の高さ（100vh 相当）を超えた場合に背景を変更
-      if (window.scrollY > window.innerHeight) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
-    };
-
+    const handleScroll = () => setScrolled(window.scrollY > window.innerHeight);
     window.addEventListener("scroll", handleScroll);
-    // 初期状態もチェック
+    // 初期状態を設定
     handleScroll();
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // メニューの開閉をトグルするハンドラ
-  const toggleMenu = () => {
+  // メニューオープン時に各リンクにアニメーションを適用
+  useEffect(() => {
+    if (isMenuOpen) {
+      const linkElements = document.querySelectorAll<HTMLAnchorElement>(".menu-link");
+      linkElements.forEach((el, index) => {
+        gsap.fromTo(
+          el,
+          { opacity: 0, x: -20, filter: "blur(2px)" },
+          {
+            opacity: 1,
+            x: 0,
+            filter: "blur(0px)",
+            delay: index * 0.05,
+            duration: 0.4,
+            ease: "power2.out",
+            onStart: () => {
+              gsap.to(el, {
+                keyframes: [
+                  { skewX: 5, x: 5, duration: 0.05 },
+                  { skewX: -5, x: -5, duration: 0.05 },
+                  { skewX: 0, x: 0, duration: 0.05 },
+                ],
+              });
+            },
+          }
+        );
+      });
+    }
+  }, [isMenuOpen]);
+
+  // メニューの開閉トグル
+  const toggleMenu = useCallback(() => {
     setIsMenuOpen((prev) => !prev);
-  };
+  }, []);
 
   return (
     <>
-      {/* スクロールに応じた背景切替のナビゲーションバー */}
+      {/* ナビゲーションバー */}
       <nav
         className={`fixed top-0 left-0 w-full z-[1200] transition-all duration-500 rounded-b-xl ${
-          scrolled
-            ? "bg-black/50 backdrop-blur-md"
-            : "bg-transparent"
+          scrolled ? "bg-black/50 backdrop-blur-md" : "bg-transparent"
         }`}
       >
         <div className="flex items-center justify-between p-3">
-          {/* ロゴ部分：サイズを小さく */}
-          <Link legacyBehavior href="/">
-            <a>
-              <img src="/logo.png" alt="Logo" className="h-6" />
-            </a>
+          <Link href="/">
+            <img src="/logo.png" alt="Logo" className="h-6" />
           </Link>
-          {/* メニュートグルボタン：サイズ小さめに変更 */}
-          <button
-            onClick={toggleMenu}
-            className="relative w-6 h-6 focus:outline-none"
-            aria-label="Toggle menu"
-          >
-            {/* 上段 */}
-            <span
-              style={{
-                transform: isMenuOpen
-                  ? "translate(-50%, -50%) rotate(45deg)"
-                  : "translate(-50%, calc(-50% - 0.25rem))",
-              }}
-              className="block absolute left-1/2 top-1/2 h-[2px] w-5 bg-white transition-transform duration-500 ease-in-out"
-            ></span>
-            {/* 中段 */}
-            <span
-              style={{
-                opacity: isMenuOpen ? 0 : 1,
-                transform: "translate(-50%, -50%)",
-              }}
-              className="block absolute left-1/2 top-1/2 h-[2px] w-5 bg-white transition-opacity duration-500 ease-in-out"
-            ></span>
-            {/* 下段 */}
-            <span
-              style={{
-                transform: isMenuOpen
-                  ? "translate(-50%, -50%) rotate(-45deg)"
-                  : "translate(-50%, calc(-50% + 0.25rem))",
-              }}
-              className="block absolute left-1/2 top-1/2 h-[2px] w-5 bg-white transition-transform duration-500 ease-in-out"
-            ></span>
-          </button>
+          <HamburgerIcon isOpen={isMenuOpen} onClick={toggleMenu} />
         </div>
       </nav>
 
-      {/* フルスクリーン メニュー オーバーレイ */}
+      {/* フルスクリーンのメニュー */}
       <div
         className={`fixed inset-0 bg-black flex flex-col items-center justify-center transition-opacity duration-1000 z-[1100] ${
           isMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
@@ -100,48 +148,32 @@ export default function AnimatedFullscreenMenu() {
       >
         <nav>
           <ul className="space-y-6 text-2xl text-white text-center">
-            <li>
-              <Link legacyBehavior href="#home">
-                <a onClick={toggleMenu} className="hover:text-gray-400 transition-colors">
-                  Home
-                </a>
-              </Link>
-            </li>
-            <li>
-              <Link legacyBehavior href="#concept">
-                <a onClick={toggleMenu} className="hover:text-gray-400 transition-colors">
-                  Concept
-                </a>
-              </Link>
-            </li>
-            <li>
-              <Link legacyBehavior href="#products">
-                <a onClick={toggleMenu} className="hover:text-gray-400 transition-colors">
-                  Products
-                </a>
-              </Link>
-            </li>
-            <li>
-              <Link legacyBehavior href="#contact">
-                <a onClick={toggleMenu} className="hover:text-gray-400 transition-colors">
-                  Contact
-                </a>
-              </Link>
-            </li>
+            {menuLinks.map((link) => (
+              <li key={link.href}>
+                <Link
+                  href={link.href}
+                  onClick={toggleMenu}
+                  className="hover:text-gray-400 transition-colors uppercase menu-link"
+                >
+                  {link.label?.toUpperCase()}
+                </Link>
+              </li>
+            ))}
           </ul>
         </nav>
 
         {/* ソーシャルリンク */}
         <div className="mt-10 flex gap-5">
-          <Link legacyBehavior href="https://instagram.com" target="_blank" rel="noopener noreferrer">
-            <img src="/Instagram.png" alt="Instagram" className="h-7 w-7" />
-          </Link>
-          <Link legacyBehavior href="https://keisho.tech" target="_blank" rel="noopener noreferrer">
-            <img src="/KeishoTech.png" alt="Keisho Tech" className="h-7 w-7" />
-          </Link>
-          <Link legacyBehavior href="https://www2.spc.ritsumei.ac.jp/" target="_blank" rel="noopener noreferrer">
-            <img src="/School.png" alt="School" className="h-7 w-7" />
-          </Link>
+          {socialLinks.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img src={link.src} alt={link.alt} className="h-7 w-7" />
+            </Link>
+          ))}
         </div>
       </div>
     </>

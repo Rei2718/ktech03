@@ -103,8 +103,8 @@ const Carousel_3: React.FC<PropType> = ({ options = {} }) => {
   }, [emblaApi]);
 
   return (
-    <section className="w-full py-15">
-      <h1 className="carousel3__title text-3xl sm:text-4xl md:text-5xl lg:text-6xl pb-10 font-bold flex justify-center items-center">
+    <section className="w-full" id="gallery">
+      <h1 className="carousel3__title text-3xl sm:text-4xl md:text-5xl lg:text-6xl pb-8 sm:pb-12 md:pb-16 lg:pb-20 font-bold flex justify-center items-center">
         Gallery
       </h1>
 
@@ -112,7 +112,7 @@ const Carousel_3: React.FC<PropType> = ({ options = {} }) => {
         <div className="flex touch-action-[pan-y_pinch-zoom]">
           {slideComponents.map((SlideComponent, index) => (
             <div key={index} className="flex-none px-8">
-              <div className="carousel3__slide w-[80lvw] max-w-lg aspect-square rounded-4xl border-2 border-white/20 overflow-hidden">
+              <div className="carousel3__slide w-[80svw] max-w-lg aspect-square rounded-4xl border-2 border-white/20 overflow-hidden">
                 <SlideComponent />
               </div>
             </div>

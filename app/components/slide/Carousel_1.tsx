@@ -38,12 +38,15 @@ const Carousel_1: React.FC<PropType> = ({ options = {} }) => {
   );
 
   return (
-    <section className="w-full py-15">
+    <section className="w-full py-10" id="our_activity">
+      <h1 className="carousel3__title text-3xl sm:text-4xl md:text-5xl lg:text-6xl pb-10 font-bold flex justify-center items-center">
+        OUR ACTIVITY
+      </h1>
       <div className="overflow-hidden" ref={emblaRef}>
         <div className="flex touch-action-[pan-y_pinch-zoom]">
           {slideComponents.map((SlideComponent, index) => (
             <div key={index} className="flex-none px-4">
-              <div className="h-[80lvh] w-[90lvw] xl:max-w-[70lvw] xl:max-h-[70lvh] rounded-4xl border-2 border-white/20 overflow-hidden">
+              <div className="h-[80svh] w-[90svw] xl:max-w-[70svw] xl:max-h-[70svh] rounded-4xl border-2 border-white/20 overflow-hidden">
                 <SlideComponent />
               </div>
             </div>

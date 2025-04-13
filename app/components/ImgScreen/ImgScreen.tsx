@@ -7,12 +7,12 @@ gsap.registerPlugin(ScrollTrigger);
 
 export default function ImgScreen() {
   const bgRef = useRef<HTMLImageElement>(null);
-  const titleRef = useRef(null);
-  const textRef = useRef(null);
-  const imageRef = useRef(null);
+  const titleRef = useRef<HTMLHeadingElement>(null);
+  const textRef = useRef<HTMLParagraphElement>(null);
+  const imageRef = useRef<HTMLImageElement>(null);
 
   useEffect(() => {
-    // ✅ Background parallax animation
+    // Background parallax animation
     if (bgRef.current) {
       gsap.to(bgRef.current, {
         y: -100,
@@ -26,7 +26,7 @@ export default function ImgScreen() {
       });
     }
 
-    // ✅ Title fade & slide animation
+    // Title fade & slide animation
     if (titleRef.current) {
       gsap.fromTo(
         titleRef.current,
@@ -45,7 +45,7 @@ export default function ImgScreen() {
       );
     }
 
-    // ✅ Text fade & slide animation
+    // Text fade & slide animation
     if (textRef.current) {
       gsap.fromTo(
         textRef.current,
@@ -65,7 +65,7 @@ export default function ImgScreen() {
       );
     }
 
-    // ✅ Main image (rounded cropped image) fade & scale animation
+    // Main image (rounded cropped image) fade & scale animation
     if (imageRef.current) {
       gsap.fromTo(
         imageRef.current,
@@ -87,24 +87,24 @@ export default function ImgScreen() {
   }, []);
 
   return (
-    <section className="relative overflow-hidden mt-15">
-      {/* Text content positioned on top */}
-      <div className="absolute top-0 left-0 w-full z-20 flex flex-col items-center">
+    <section className="relative overflow-hidden h-full w-full my-10">
+      {/* テキスト＆コンテンツ（元の配置を維持） */}
+      <div className="absolute inset-0 z-20 flex flex-col justify-center items-center">
         <h1
           ref={titleRef}
-          className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-6xl text-center pb-4 sm:pb-6 md:pb-8 lg:pb-10 max-w-4xl font-bold"
+          className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-6xl text-center pb-4 sm:pb-6 md:pb-8 lg:pb-10 max-w-6xl font-bold w-10/12"
         >
-          技術と想像力が出会う
+          一人の創造性、全員の力に
         </h1>
         <p
           ref={textRef}
-          className="text-base sm:text-lg md:text-xl lg:text-xl xl:text-2xl text-center w-10/12 max-w-3xl text-[#A2A2A2] mt-4"
+          className="text-base sm:text-lg md:text-xl lg:text-xl xl:text-2x text-center mx-auto w-10/12 max-w-6xl"
         >
-          3DCGからAI、Webまで。k-Techでは技術を使いこなすスキルと、自由な発想力が融合します。
-          国内外のコンテストで認められた私たちの作品は、デジタルの可能性を最大限に引き出す証。
-          あなたのアイデアが、ここから世界へ広がります。
+          k-Techは個性が輝く場所。3DCGクリエイター、AIエンジニア、Webデザイナーなど、
+          異なる専門性を持つメンバーが互いを高め合うことで、一人では生み出せない価値が生まれます。
+          あなたの得意を活かし、仲間と共に成長する旅に出ましょう。
         </p>
-        {/* New image element with rounded-4xl cropping */}
+        {/* メイン画像（Rounded cropped image） */}
         <div className="overflow-hidden rounded-3xl mt-32 w-10/12 max-w-4xl">
           <img
             ref={imageRef}
@@ -115,20 +115,33 @@ export default function ImgScreen() {
         </div>
       </div>
 
-      {/* Background and other elements */}
+      {/* 背景とフェードオーバーレイ */}
       <div className="relative z-0">
-        {/* Top gradient overlay */}
-        <div className="pointer-events-none absolute top-0 left-0 w-full h-[40svh] bg-gradient-to-b from-black via-black/70 to-transparent z-10" />
-        {/* Bottom gradient overlay */}
-        <div className="pointer-events-none absolute bottom-0 left-0 w-full h-[40svh] bg-gradient-to-t from-black via-black/70 to-transparent z-10" />
+        {/* 上部フェード：初期40%は黒、その後透明へ */}
+        <div
+          className="pointer-events-none absolute top-0 left-0 w-full z-10"
+          style={{
+            height: "50svh",
+            background: "linear-gradient(to bottom, #000 0%, #000 10svh, transparent 100%)",
+          }}
+        />
 
-        {/* Background image */}
+        {/* 下部フェード：初期40%は黒、その後透明へ */}
+        <div
+          className="pointer-events-none absolute bottom-0 left-0 w-full z-10"
+          style={{
+            height: "50svh",
+            background: "linear-gradient(to top, #000 0%, #000 10svh, transparent 100%)",
+          }}
+        />
+
+        {/* 背景画像 */}
         <div className="image-container relative z-0">
           <img
             ref={bgRef}
             src="BG-1.jpg"
             alt=""
-            className="w-full h-[110svh] object-cover z-0"
+            className="w-full h-[120vh] object-cover z-0"
           />
         </div>
       </div>

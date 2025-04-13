@@ -5,14 +5,14 @@ import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
-export default function ImgScreen02() {
+export default function ImgScreen() {
   const bgRef = useRef<HTMLImageElement>(null);
-  const titleRef = useRef(null);
-  const textRef = useRef(null);
-  const imageRef = useRef(null);
+  const titleRef = useRef<HTMLHeadingElement>(null);
+  const textRef = useRef<HTMLParagraphElement>(null);
+  const imageRef = useRef<HTMLImageElement>(null);
 
   useEffect(() => {
-    // ✅ 背景パララックス：画像自体をトリガーにスクロール時に上下移動
+    // Background parallax animation
     if (bgRef.current) {
       gsap.to(bgRef.current, {
         y: -100,
@@ -26,7 +26,7 @@ export default function ImgScreen02() {
       });
     }
 
-    // ✅ タイトルのフェード＆スライドアニメーション
+    // メインタイトルのフェード＆スライドアニメーション
     if (titleRef.current) {
       gsap.fromTo(
         titleRef.current,
@@ -45,7 +45,7 @@ export default function ImgScreen02() {
       );
     }
 
-    // ✅ テキストのフェード＆スライドアニメーション
+    // 文章のフェード＆スライドアニメーション
     if (textRef.current) {
       gsap.fromTo(
         textRef.current,
@@ -65,7 +65,7 @@ export default function ImgScreen02() {
       );
     }
 
-    // ✅ メイン画像のフェード＆スケールアニメーション
+    // 画像のフェード＆スケールアニメーション
     if (imageRef.current) {
       gsap.fromTo(
         imageRef.current,
@@ -87,48 +87,63 @@ export default function ImgScreen02() {
   }, []);
 
   return (
-    <section className="relative overflow-hidden my-15">
-      <div className="absolute bottom-0 left-0 mb-32 w-full z-20 flex flex-col items-center">
-        {/* New image element with rounded-4xl cropping */}
+    <section className="relative overflow-hidden h-full w-full my-10">
+      {/* コンテンツ：画面下部に、画像 → メインタイトル → 文章の順で配置 */}
+      <div className="absolute inset-0 z-20 flex flex-col justify-center items-center">
+        {/* 画像 */}
         <div className="overflow-hidden rounded-3xl mb-32 w-10/12 max-w-4xl">
           <img
             ref={imageRef}
-            src="Screen02.png"
+            src="Screen01.png"
             alt="Cropped Example"
             className="w-full h-auto object-cover"
           />
         </div>
+        {/* メインタイトル */}
         <h1
           ref={titleRef}
-          className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-6xl text-center pb-4 sm:pb-6 md:pb-8 lg:pb-10 max-w-4xl font-bold"
+          className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-6xl text-center pb-4 sm:pb-6 md:pb-8 lg:pb-10 max-w-6xl font-bold w-10/12"
         >
-          一人の創造性、全員の力に。
+          一人の創造性、全員の力に
         </h1>
+        {/* 文章 */}
         <p
           ref={textRef}
-          className="text-base sm:text-lg md:text-xl lg:text-xl xl:text-2xl text-center w-10/12 max-w-3xl text-[#A2A2A2] mt-4"
+          className="text-base sm:text-lg md:text-xl lg:text-xl xl:text-2x text-center mx-auto w-10/12 max-w-6xl"
         >
-          K-Techは個性が輝く場所。
+          k-Techは個性が輝く場所。3DCGクリエイター、AIエンジニア、Webデザイナーなど、
           異なる専門性を持つメンバーが互いを高め合うことで、一人では生み出せない価値が生まれます。
           あなたの得意を活かし、仲間と共に成長する旅に出ましょう。
         </p>
       </div>
 
-      {/* 背景とその他の要素 */}
+      {/* 背景とフェードオーバーレイ */}
       <div className="relative z-0">
-        {/* 上部グラデーション */}
-        <div className="pointer-events-none absolute top-0 left-0 w-full h-[40svh] bg-gradient-to-b from-black via-black/70 to-transparent z-10" />
-        {/* 下部グラデーション */}
-        <div className="pointer-events-none absolute bottom-0 left-0 w-full h-[40svh] bg-gradient-to-t from-black via-black/70 to-transparent z-10" />
+        {/* 上部フェード：初期は黒から透明へ */}
+        <div
+          className="pointer-events-none absolute top-0 left-0 w-full z-10"
+          style={{
+            height: "50svh",
+            background: "linear-gradient(to bottom, #000 0%, #000 10svh, transparent 100%)",
+          }}
+        />
 
+        {/* 下部フェード：初期40%は黒、その後透明へ */}
+        <div
+          className="pointer-events-none absolute bottom-0 left-0 w-full z-10"
+          style={{
+            height: "50svh",
+            background: "linear-gradient(to top, #000 0%, #000 10svh, transparent 100%)",
+          }}
+        />
         {/* 背景画像 */}
         <div className="image-container relative z-0">
-            <img
+          <img
             ref={bgRef}
             src="BG-1.jpg"
             alt=""
-            className="w-full h-[110svh]  object-cover z-0"
-            />
+            className="w-full h-[120vh] object-cover z-0"
+          />
         </div>
       </div>
     </section>

@@ -9,11 +9,11 @@ export default function Mac2() {
           <div className="text-base sm:text-lg md:text-xl lg:text-xl xl:text-2xl max-w-3xl mx-auto text-[#A2A2A2]">HTML・CSS・JavaScriptフロントエンド基礎</div>
         </div>
       </div>
-      <div className="absolute bottom-0 left-0 w-full z-0">
+      <div className="absolute inset-0 z-0">
         <img
           src="Screen01.png"
           alt="mac1"
-          className="w-full object-cover object-bottom brightness-70"
+          className="w-full h-full object-cover brightness-70"
         />
       </div>
     </div>

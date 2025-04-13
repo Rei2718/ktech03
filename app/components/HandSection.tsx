@@ -13,7 +13,7 @@ export default function HandSection() {
           <img
             src="hand.jpg"
             alt="Hand"
-            className="w-full h-[150lvw] lg:h-[150lvh] object-cover"
+            className="w-full h-[150svw] lg:h-[150svh] object-cover"
           />
         </div>
       </section>

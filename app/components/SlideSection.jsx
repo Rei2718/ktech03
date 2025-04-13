@@ -24,7 +24,7 @@ export default function SlideSection() {
           data-hs-carousel='{"loadingClasses": "opacity-0"}'
           className="relative px-5 py-10 w-11/12 mx-auto"
         >
-          <div className="hs-carousel relative overflow-hidden flex justify-center items-center w-full h-[80lvh] rounded-4xl bg-transparent border-[1.5px] border-white/30">
+          <div className="hs-carousel relative overflow-hidden flex justify-center items-center w-full h-[80svh] rounded-4xl bg-transparent border-[1.5px] border-white/30">
             <div className="hs-carousel-body absolute top-0 bottom-0 start-0 flex flex-nowrap transition-transform duration-700 opacity-0">
               {slides.map((SlideComponent, index) => (
                 <div className="hs-carousel-slide" key={index}>
@@ -40,9 +40,9 @@ export default function SlideSection() {
               className="hs-carousel-prev hs-carousel-disabled:opacity-50 hs-carousel-disabled:pointer-events-none absolute inset-y-0 start-0 inline-flex justify-center items-center w-auto h-full pl-2 text-gray-800 focus:outline-hidden rounded-s-lg dark:text-white"
             >
               <span className="text-2xl" aria-hidden="true">
-                <lvg
+                <svg
                   className="shrink-0 size-5"
-                  xmlns="http://www.w3.org/2000/lvg"
+                  xmlns="http://www.w3.org/2000/svg"
                   width="24"
                   height="24"
                   viewBox="0 0 24 24"
@@ -53,7 +53,7 @@ export default function SlideSection() {
                   strokeLinejoin="round"
                 >
                   <path d="m15 18-6-6 6-6" />
-                </lvg>
+                </svg>
               </span>
               <span className="sr-only">Previous</span>
             </button>
@@ -63,9 +63,9 @@ export default function SlideSection() {
             >
               <span className="sr-only">Next</span>
               <span className="text-2xl" aria-hidden="true">
-                <lvg
+                <svg
                   className="shrink-0 size-5"
-                  xmlns="http://www.w3.org/2000/lvg"
+                  xmlns="http://www.w3.org/2000/svg"
                   width="24"
                   height="24"
                   viewBox="0 0 24 24"
@@ -76,7 +76,7 @@ export default function SlideSection() {
                   strokeLinejoin="round"
                 >
                   <path d="m9 18 6-6-6-6" />
-                </lvg>
+                </svg>
               </span>
             </button>
           </div>

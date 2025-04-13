@@ -229,27 +229,27 @@ export default function AchieveScreen() {
   ];
 
   return (
-    <section className="w-full h-auto flex flex-col items-center py-15">
-      <div className="w-10/12 max-w-4xl text-center">
+    <section className="w-full h-auto flex flex-col items-center py-10" id="achieve">
+      <div className="text-center">
         <h1
           ref={titleRef}
-          className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-6xl pb-8 sm:pb-12 md:pb-16 lg:pb-20 font-bold"
+          className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-6xl pb-12 sm:pb-16 md:pb-20 lg:pb-24 font-bold w-10/12 mx-auto"
         >
-          全国・海外で爪痕を残す
+          国内外で爪痕を残す
         </h1>
         <p
           ref={textRef}
-          className="text-base sm:text-lg md:text-xl lg:text-xl xl:text-2xl max-w-3xl mx-auto text-[#A2A2A2]"
+          className="text-base sm:text-lg md:text-xl lg:text-xl xl:text-2x text-center mx-auto w-10/12 text-[#A2A2A2] max-w-6xl"
         >
           k-Techは単なるIT同好会の枠を超え、国内外のコンテストで次々と実績を刻んでいます。
-          3DCGの精緻な作品、機械学習を活用したプロジェクトやコンテスト、洗練されたWebデザイン<br/>
+          3DCGの精緻な作品、機械学習を活用したプロジェクトやコンテスト、洗練されたWebデザイン、
           それぞれの分野で高い評価を獲得し、私たちの足跡は確かに残されています。
           ここでの努力と挑戦が変えていく。あなたも共に、新たな爪痕を残しませんか。
         </p>
       </div>
 
       {/* 第一バナー（通常方向：右→左スクロール） */}
-      <div className="w-screen relative left-1/2 -translate-x-1/2 mt-8">
+      <div className="w-screen relative left-1/2 -translate-x-1/2 pt-16 sm:pt-20 md:pt-24 lg:pt-28">
         <Marquee images={awardImages} direction="normal" speed={50} />
       </div>
 
