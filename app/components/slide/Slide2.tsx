@@ -28,7 +28,7 @@ export default function Slide2() {
             <p className="pt-4 sm:pt-5 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold">
               PANDAS TENSORFLOW PYTORCH
             </p>
-            <p className="mt-12 text-sm sm:text-base md:text-lg lg:text-xl font-light text-[#A2A2A2]">
+            <p className="mt-12 text-sm sm:text-base md:text-lg lg:text-xl font-light">
               膨大なデータの海から、価値ある特徴を見つけ出す。Pythonの豊富なライブラリを用い、分析・可視化からモデルの設計・評価まで、数値の背後にある物語を紐解きます。理論と実践を結びつけ、データが語る声に耳を傾けています。
             </p>
           </div>

@@ -116,7 +116,7 @@ const Carousel_2: React.FC<PropType> = ({ options = {} }) => {
         <div className="flex touch-action-[pan-y_pinch-zoom]">
           {slideComponents.map((SlideComponent, index) => (
             <div key={index} className="flex-none px-8">
-              <div className="carousel3__slide w-[80vw] max-w-lg aspect-square rounded-4xl border-2 border-white/20 overflow-hidden">
+              <div className="carousel3__slide w-[80lvw] max-w-lg aspect-square rounded-4xl border-2 border-white/20 overflow-hidden">
                 <SlideComponent />
               </div>
             </div>

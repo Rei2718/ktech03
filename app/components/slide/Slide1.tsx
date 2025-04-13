@@ -28,7 +28,7 @@ export default function Slide1() {
             <p className="pt-4 sm:pt-5 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold">
               BLENDER MAYA CINEMA4D
             </p>
-            <p className="mt-12 text-sm sm:text-base md:text-lg lg:text-xl font-light text-[#A2A2A2]">
+            <p className="mt-12 text-sm sm:text-base md:text-lg lg:text-xl font-light">
               光と影が織りなす仮想の舞台。Blenderを主に駆使し、私たちは想像の翼を広げ、形なき夢を具現化します。モデリングからアニメーションまで、創造の旅路は終わることなく、国内外のコンテストでの栄誉もその一歩に過ぎません。常に新たな表現を求め、最先端のクリエイティブシーンを探求し続けます。
             </p>
           </div>

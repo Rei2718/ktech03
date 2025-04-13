@@ -28,7 +28,7 @@ export default function Slide5() {
             <p className="pt-4 sm:pt-5 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold">
               FLUTTER REACT-NATIVE
             </p>
-            <p className="mt-12 text-sm sm:text-base md:text-lg lg:text-xl font-light text-[#A2A2A2]">
+            <p className="mt-12 text-sm sm:text-base md:text-lg lg:text-xl font-light">
               日々進化するモバイルアプリの世界。FlutterやReact Nativeを用いて、iOSとAndroid両方に対応したアプリ開発を行い、デジタルを通じて新たな価値創造の可能性を広げています。
             </p>
           </div>

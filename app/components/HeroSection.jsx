@@ -43,7 +43,7 @@ export default function HeroSection() {
   }, []);
 
   return (
-    <section className="relative w-full h-svh overflow-visible text-white">
+    <section className="relative w-full h-lvh overflow-visible text-white">
       {/* テキスト群：セクション下部中央 */}
       <div className="absolute left-0 right-0 bottom-4  w-11/12 mx-auto flex flex-col items-center space-y-6 md:space-y-8">
         <div ref={textGroupRef} className="text-center">
@@ -64,7 +64,7 @@ export default function HeroSection() {
         </div>
       </div>
 
-      <div className="absolute bottom-0 right-4 z-[100] translate-y-[4.5svh]">
+      <div className="absolute bottom-0 right-4 z-[100] translate-y-[4.5lvh]">
         <button
           ref={playButtonRef}
           onClick={handleTogglePlay}

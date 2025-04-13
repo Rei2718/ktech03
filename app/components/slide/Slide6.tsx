@@ -28,7 +28,7 @@ export default function Slide6() {
             <p className="pt-4 sm:pt-5 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold">
               COLLABORATIONS PRESENTATIONS
             </p>
-            <p className="mt-12 text-sm sm:text-base md:text-lg lg:text-xl font-light text-[#A2A2A2]">
+            <p className="mt-12 text-sm sm:text-base md:text-lg lg:text-xl font-light">
               技術だけでなくビジネス視点やコミュニケーション能力も大切にしています。ボードゲーム開発や学会発表を通じて思考を磨き、外部との協力やプレゼンテーションで新たなイノベーションの可能性を追求しています。
             </p>
           </div>

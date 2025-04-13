@@ -28,7 +28,7 @@ export default function Slide3() {
             <p className="pt-4 sm:pt-5 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold">
               REACT NODE.JS DJANGO
             </p>
-            <p className="mt-12 text-sm sm:text-base md:text-lg lg:text-xl font-light text-[#A2A2A2]">
+            <p className="mt-12 text-sm sm:text-base md:text-lg lg:text-xl font-light">
               WEBは情報の羅列ではなく、ユーザーとの対話や感動を生み出す舞台。Reactを用いた洗練されたUI設計から、Node.jsを主とした堅牢なバックエンド構築まで、フロントエンドとバックエンドの垣根を越え、ユーザー体験を最優先に考えた開発を実践しています。
             </p>
           </div>

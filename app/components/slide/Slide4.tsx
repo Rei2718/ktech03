@@ -28,7 +28,7 @@ export default function Slide4() {
             <p className="pt-4 sm:pt-5 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold">
               PROCREATE CANVA &MORE
             </p>
-            <p className="mt-12 text-sm sm:text-base md:text-lg lg:text-xl font-light text-[#A2A2A2]">
+            <p className="mt-12 text-sm sm:text-base md:text-lg lg:text-xl font-light">
               デザインは、言葉を超えて思想や熱意を伝える力を持っています。ProcreateやCanvaを活用し、シンプルながら計算されたデザインで、見る人の心に深く響くビジュアル表現を追求しています。
             </p>
           </div>

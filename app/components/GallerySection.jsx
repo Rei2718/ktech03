@@ -24,7 +24,7 @@ export default function GallerySection() {
             {galleryItems.map((item, index) => (
               <div
                 key={index}
-                className="flex-shrink-0 snap-center px-6 w-[85svw] lg:w-[80svh]"
+                className="flex-shrink-0 snap-center px-6 w-[85lvw] lg:w-[80lvh]"
               >
                 {/* 正方形を維持するため aspect-square を利用 */}
                 <div className="relative overflow-hidden rounded-4xl border-[1.5px] border-white/20 aspect-square">
