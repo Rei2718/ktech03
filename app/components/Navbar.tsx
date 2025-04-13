@@ -21,7 +21,9 @@ const menuLinks: LinkItem[] = [
   { href: "#our_activity", label: "Our activity" },
   { href: "#our_vision", label: "Our vision" },
   { href: "#spring_Project", label: "Spring Project" },
+  {/"
   { href: "#gallery", label: "Gallery" },
+  "/}
   { href: "#join", label: "Join K-Tech" },
 ];
 
