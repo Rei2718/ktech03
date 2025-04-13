@@ -6,7 +6,6 @@ import { EmblaOptionsType } from "embla-carousel";
 import ImgScreen from "./components/ImgScreen/ImgScreen";
 import Carousel_1 from "./components/slide/Carousel_1";
 import Carousel_2 from "./components/slide/Carousel_2";
-import Carousel_3 from "./components/slide/Carousel_3";
 import ImgScreen02 from "./components/ImgScreen/ImgScreen02";
 import AchieveScreen from "./components/AchieveScreen/AchieveScreen";
 import NoiseFilter from "./components/NoiseFilter";
