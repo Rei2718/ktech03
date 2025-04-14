@@ -12,7 +12,7 @@ const NoiseFilter = () => {
           {/* ノイズパターンを生成：コメントに合わせて baseFrequency を2.75 に変更 */}
           <feTurbulence
             type="fractalNoise"
-            baseFrequency="4.01"
+            baseFrequency="0.95"
             numOctaves="1"
             seed={randomSeed}
             result="turbulence"
