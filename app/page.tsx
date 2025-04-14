@@ -25,7 +25,7 @@ export default function HomePage() {
         <NoiseFilter />
       </div>
       <VideoProvider>
-        <VideoBackground src="hero16_9.mp4" />
+        <VideoBackground src="hero.mp4" />
         {/* 親要素にグラデーション背景を設定 */}
         <div
           className="relative text-white bg-black"
