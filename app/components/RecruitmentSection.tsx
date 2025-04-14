@@ -6,10 +6,10 @@ export default function RecruitmentSection() {
         <div className="max-w-2xl lg:max-w-5xl mx-auto">
           {/* セクション見出し */}
           <div className="text-center">
-            <h1 className="text-3xl font-bold text-gray-800 sm:text-4xl dark:text-white">
+            <h1 className="text-3xl font-bold sm:text-4xl">
               チームに参加
             </h1>
-            <p className="mt-1 text-gray-600 dark:text-neutral-400">
+            <p className="mt-1">
               ひとりひとりの「やってみたい」を原動力に
             </p>
           </div>
@@ -17,11 +17,11 @@ export default function RecruitmentSection() {
           {/* 2カラムグリッド */}
           <div className="mt-12 grid items-center lg:grid-cols-2 gap-6 lg:gap-16">
             {/* 左カラム：採用に関する概要カード */}
-            <div className="flex flex-col border border-gray-200 rounded-xl p-4 sm:p-6 lg:p-8 dark:border-neutral-700">
-              <h2 className="mb-8 text-xl font-semibold text-gray-800 dark:text-neutral-200">
+            <div className="flex flex-col border border-gray-200 rounded-xl p-4 sm:p-6 lg:p-8">
+              <h2 className="mb-8 text-xl font-semibold">
                 ── 全国・世界が舞台。
               </h2>
-              <p className="text-gray-600 dark:text-neutral-400">
+              <p className="">
                 K-Techは、3DCG・アプリ開発・機械学習・メディアアートなど、
                 最先端の技術とクリエイティブを武器に、国内外のコンテストやイベントで結果を残しているチームです。
                 私たちと共に、あなたの“好きや興味”を世界でも通用する力へと変えていきませんか？
@@ -29,11 +29,11 @@ export default function RecruitmentSection() {
             </div>
 
             {/* 右カラム：アイコンブロック */}
-            <div className="divide-y divide-gray-200 dark:divide-neutral-800">
+            <div className="divide-y divide-gray-600">
               {/* アイコンブロック 1 */}
               <div className="flex gap-x-7 py-6">
                 <svg
-                  className="shrink-0 w-6 h-6 mt-1.5 text-gray-800 dark:text-neutral-200"
+                  className="shrink-0 w-6 h-6 mt-1.5"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   stroke="currentColor"
@@ -46,10 +46,10 @@ export default function RecruitmentSection() {
                   <path d="M12 17h.01" />
                 </svg>
                 <div className="grow">
-                  <h3 className="font-semibold text-gray-800 dark:text-neutral-200">
+                  <h3 className="font-semibold">
                     ご質問等はオフラインでの活動時に
                   </h3>
-                  <p className="mt-1 text-sm text-gray-500 dark:text-neutral-500">
+                  <p className="mt-1 text-sm">
                     毎週月曜日と木曜日の放課後にCotanもしくは情報1の教室で活動をしています。
                   </p>
                 </div>
@@ -58,7 +58,7 @@ export default function RecruitmentSection() {
               {/* アイコンブロック 2 */}
               <div className="flex gap-x-7 py-6">
                 <svg
-                  className="shrink-0 w-6 h-6 mt-1.5 text-gray-800 dark:text-neutral-200"
+                  className="shrink-0 w-6 h-6 mt-1.5"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   stroke="currentColor"
@@ -70,10 +70,10 @@ export default function RecruitmentSection() {
                   <path d="M18 9h2a2 2 0 0 1 2 2v11l-4-4h-6a2 2 0 0 1-2-2v-1" />
                 </svg>
                 <div className="grow">
-                  <h3 className="font-semibold text-gray-800 dark:text-neutral-200">
+                  <h3 className="font-semibold">
                     Discordアカウントのご用意を
                   </h3>
-                  <p className="mt-1 text-sm text-gray-500 dark:text-neutral-500">
+                  <p className="mt-1 text-sm">
                     メンバー同士の連絡やプロジェクトの進行、オンラインミーティングなどは全てDiscordで行います。
                   </p>
                 </div>
@@ -82,7 +82,7 @@ export default function RecruitmentSection() {
               {/* アイコンブロック 3 */}
               <div className="flex gap-x-7 py-6">
                 <svg
-                  className="shrink-0 w-6 h-6 mt-1.5 text-gray-800 dark:text-neutral-200"
+                  className="shrink-0 w-6 h-6 mt-1.5"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   stroke="currentColor"
@@ -95,10 +95,10 @@ export default function RecruitmentSection() {
                   <rect width="18" height="18" x="3" y="3" rx="2" ry="2" />
                 </svg>
                 <div className="grow">
-                  <h3 className="font-semibold text-gray-800 dark:text-neutral-200">
+                  <h3 className="font-semibold">
                     経験の有無は関係ありません
                   </h3>
-                  <p className="mt-1 text-sm text-gray-500 dark:text-neutral-500">
+                  <p className="mt-1 text-sm">
                     チームメンバーが最大限サポートします。熱意と野心だけはお忘れなく...♡
                   </p>
                 </div>
@@ -107,7 +107,7 @@ export default function RecruitmentSection() {
               {/* アイコンブロック 4 */}
               <div className="flex gap-x-7 py-6">
                 <svg
-                  className="shrink-0 w-6 h-6 mt-1.5 text-gray-800 dark:text-neutral-200"
+                  className="shrink-0 w-6 h-6 mt-1.5"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   stroke="currentColor"
@@ -119,14 +119,14 @@ export default function RecruitmentSection() {
                   <path d="m22 10-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 10" />
                 </svg>
                 <div className="grow">
-                  <h3 className="font-semibold text-gray-800 dark:text-neutral-200">
+                  <h3 className="font-semibold">
                     何かご質問がある場合はお気軽に
                   </h3>
-                  <p className="mt-1 text-sm text-gray-500 dark:text-neutral-500">
+                  <p className="mt-1 text-sm">
                     オフラインでの活動に来ていただくのが望ましいですが、都合が合わない場合は以下の連絡先まで
                   </p>
                   <a
-                    className="mt-2 inline-flex items-center gap-x-2 text-sm font-medium text-gray-600 hover:text-gray-800 dark:text-neutral-400 dark:hover:text-neutral-200"
+                    className="mt-2 inline-flex items-center gap-x-2 text-sm font-medium hover:text-gray-800"
                     href="mailto:s2007014@spc.ritsumei.ac.jp"
                   >
                     s2007014@spc.ritsumei.ac.jp
