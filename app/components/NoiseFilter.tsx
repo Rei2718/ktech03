@@ -12,7 +12,7 @@ const NoiseFilter = () => {
           {/* ノイズパターンを生成：コメントに合わせて baseFrequency を2.75 に変更 */}
           <feTurbulence
             type="fractalNoise"
-            baseFrequency="2.525"
+            baseFrequency="4.01"
             numOctaves="1"
             seed={randomSeed}
             result="turbulence"
@@ -24,15 +24,15 @@ const NoiseFilter = () => {
             values="
               0 0 0 0 0 
               0 0 0 0 0 
-              0 0 0 0 0 
+              0 0 0 0 0
               1 0 0 0 0"
             result="noiseAlpha"
           />
           {/* α値を線形変換し、透過度が0.2～0.5となるように調整 */}
           <feComponentTransfer in="noiseAlpha" result="mask">
-            <feFuncA type="linear" slope="0.20" intercept="0.10" />
+            <feFuncA type="linear" slope="0.35" intercept="-0.05" />
           </feComponentTransfer>
-          <feFlood floodColor="#ffffff" result="flood" />
+          <feFlood floodColor="#111111" result="flood" />
           {/* マスクと合成 */}
           <feComposite in="flood" in2="mask" operator="in" result="noise" />
         </filter>
