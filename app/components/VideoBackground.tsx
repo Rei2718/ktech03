@@ -15,7 +15,7 @@ export default function VideoBackground({ src }: VideoBackgroundProps) {
       autoPlay
       loop
       muted
-      className="hero-video fixed top-0 left-0 w-full h-full object-cover filter brightness-85 z-0"
+      className="hero-video fixed top-0 left-0 w-svw h-svh object-cover filter brightness-85 z-0"
     />
   );
 }
