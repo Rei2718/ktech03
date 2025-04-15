@@ -6,7 +6,7 @@ export default function Mac4() {
         <div className="absolute top-0 left-0 z-10 flex flex-col justify-between h-full px-6 sm:px-10 md:px-16 lg:px-24 py-10 sm:py-12 md:py-20">
           <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-left">
             <div className="pb-6">WEB APP ENGINEERING</div>
-            <div className="text-base sm:text-lg md:text-xl lg:text-xl xl:text-2xl max-w-3xl mx-auto text-[#A2A2A2]">webアプリ開発入門</div>
+            <div className="text-base sm:text-lg md:text-xl lg:text-xl xl:text-2xl max-w-3xl mx-auto">webアプリ開発入門</div>
           </div>
         </div>
         <div className="absolute inset-0 z-0">
