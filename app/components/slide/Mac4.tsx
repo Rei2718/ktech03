@@ -11,7 +11,7 @@ export default function Mac4() {
         </div>
         <div className="absolute inset-0 z-0">
           <img
-            src="Screen01.png"
+            src="gr10.webp"
             alt="mac1"
             className="w-full h-full object-cover brightness-70"
           />
