@@ -5,7 +5,7 @@ export default function Slide4() {
       {/* 背景画像エリア */}
       <div className="absolute inset-0">
         <img
-          src="Screen04.png"
+          src="gr4.webp"
           alt="背景画像"
           className="w-full h-full object-cover object-center"
         />
