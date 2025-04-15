@@ -9,7 +9,7 @@ export default function Slide1() {
           alt="Procreate"
           className="w-full h-full object-cover object-center"
         />
-        <div className="absolute inset-0 bg-black/20" />
+        <div className="absolute inset-0 bg-black/10" />
       </div>
 
       {/* コンテンツエリア */}
