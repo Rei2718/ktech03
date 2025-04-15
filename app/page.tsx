@@ -35,7 +35,7 @@ export default function HomePage() {
           }}
         >
           {/* コンテンツ部分はオフセットを適用 */}
-          <div className="relative -top-[25svh]">
+          <div className="relative -top-[40svh]">
             <HeroSection />
             <KtechAbout />
             <Carousel_1 options={OPTIONS} />
