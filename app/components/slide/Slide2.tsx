@@ -9,7 +9,7 @@ export default function Slide2() {
           alt="背景画像"
           className="w-full h-full object-cover object-center"
         />
-        <div className="absolute inset-0 bg-black/40" />
+        <div className="absolute inset-0 bg-black/20" />
       </div>
       
       {/* コンテンツエリア */}
