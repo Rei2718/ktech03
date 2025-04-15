@@ -5,11 +5,11 @@ export default function Slide1() {
       {/* 背景画像エリア */}
       <div className="absolute inset-0">
         <img
-          src="gr1.webp"
+          src="dr1.webp"
           alt="Procreate"
           className="w-full h-full object-cover object-center"
         />
-        <div className="absolute inset-0 bg-black/40" />
+        <div className="absolute inset-0 bg-black/20" />
       </div>
 
       {/* コンテンツエリア */}
