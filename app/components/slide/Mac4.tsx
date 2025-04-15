@@ -13,7 +13,7 @@ export default function Mac4() {
           <img
             src="gr10.webp"
             alt="mac1"
-            className="w-full h-full object-cover brightness-70"
+            className="w-full h-full object-cover brightness-90"
           />
         </div>
       </div>
