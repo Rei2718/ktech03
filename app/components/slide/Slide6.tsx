@@ -5,7 +5,7 @@ export default function Slide6() {
       {/* 背景画像エリア */}
       <div className="absolute inset-0">
         <img
-          src="Screen06.png"
+          src="gr6.webp"
           alt="背景画像"
           className="w-full h-full object-cover object-center"
         />
