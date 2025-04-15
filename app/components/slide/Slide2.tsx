@@ -5,7 +5,7 @@ export default function Slide2() {
       {/* 背景画像エリア */}
       <div className="absolute inset-0">
         <img
-          src="Screen02.png"
+          src="gr2.webp"
           alt="背景画像"
           className="w-full h-full object-cover object-center"
         />
