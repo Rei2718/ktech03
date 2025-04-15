@@ -2,8 +2,8 @@
 import { useEffect, useState } from "react";
 
 const SplashScreen = () => (
-  <div className="fixed inset-0 flex items-center justify-center z-50 bg-black text-white animate-pulse h-svh w-svw">
-    <p>loading</p>
+  <div className="fixed inset-0 flex items-center justify-center z-50 bg-black text-white h-svh w-svw">
+    <p className="animate-pulse">loading</p>
   </div>
 );
 
