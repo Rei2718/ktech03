@@ -5,7 +5,7 @@ export default function Slide1() {
       {/* 背景画像エリア */}
       <div className="absolute inset-0">
         <img
-          src="Screen01.png"
+          src="gr1.webp"
           alt="Procreate"
           className="w-full h-full object-cover object-center"
         />
