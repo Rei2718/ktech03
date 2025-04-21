@@ -24,7 +24,14 @@ export const metadata: Metadata = {
   description:
     'K-Tech is a student-driven creative tech club exploring 3DCG, web development, AI, and media art. Join us to turn your passion into real-world innovation.',
   keywords: [
+    '立命館慶祥高等学校',
+    '立命館慶祥',
     'K-Tech',
+    '慶祥',
+    '立命館',
+    'IT',
+    'IT同好会',
+    'keisho technology',
     'Ritsumei',
     'Creative Technology',
     'Student Tech Club',
@@ -36,7 +43,6 @@ export const metadata: Metadata = {
     'Data Science',
     'App Development',
     'Innovation',
-    '立命館慶祥高等学校',
   ],
   metadataBase: new URL('https://keisho.tech/'),
   openGraph: {
