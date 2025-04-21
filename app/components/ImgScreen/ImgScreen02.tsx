@@ -104,16 +104,15 @@ export default function ImgScreen() {
           ref={titleRef}
           className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-6xl text-center pb-4 sm:pb-6 md:pb-8 lg:pb-10 max-w-6xl font-bold w-10/12"
         >
-          一人の創造性、全員の力に
+          枠を超えて、新しい体験を創る
         </h1>
         {/* 文章 */}
         <p
           ref={textRef}
           className="text-base sm:text-lg md:text-xl lg:text-xl xl:text-2x text-center mx-auto w-10/12 max-w-6xl"
         >
-          k-Techは個性が輝く場所。3DCGクリエイター、AIエンジニア、Webデザイナーなど、
-          異なる専門性を持つメンバーが互いを高め合うことで、一人では生み出せない価値が生まれます。
-          あなたの得意を活かし、仲間と共に成長する旅に出ましょう。
+          k-Techでは既存の枠組みにとらわれない発想を大切にします。3DCGの精密さ、AIの知性、Webの拡張性—それぞれの領域を深めながらも、その壁を超えたときに生まれる可能性を追求しています。
+   技術は手段であり、目的は新たな世界を探求すること。デジタルとリアルの境界を溶かし、これまでにない価値を創造する旅に、あなたも参加しませんか。
         </p>
       </div>
 
